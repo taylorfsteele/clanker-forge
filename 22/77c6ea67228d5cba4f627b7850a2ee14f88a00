@@ -1,0 +1,34 @@
+skills/prefactor/SKILL.md
+  s_9e2e1139b3b53f::t_703beb34575405 61-62
+  s_9e2e1139b3b53f::t_e853388ed136f1 66
+  s_9e2e1139b3b53f::t_8a706186ec06dd 8,10
+  s_9e2e1139b3b53f::t_4e5ffe0c09b4e8 21
+  s_9e2e1139b3b53f::t_818998274ef7c0 16
+  s_9e2e1139b3b53f::t_abb5d3261d37cf 12
+  s_9e2e1139b3b53f::t_95e202fa61b609 46
+  s_9e2e1139b3b53f::t_d1f1021038f9be 72
+  s_9e2e1139b3b53f::t_22574472f9c492 3,14,18-19,23-25,27,29,31,33,35-36,38,40,42,44,47-49,51-60,63-65,67-68,70,74-77,79,81
+  s_9e2e1139b3b53f::t_bf29a138f12411 1-2,4-7,9,11,13,15,17,20,22,26,28,30,32,34,37,39,41,43,45,69,71,73,78,80
+  s_9e2e1139b3b53f::t_5364a547de0e90 50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "2277c6ea67228d5cba4f627b7850a2ee14f88a00",
+  "prompts": {},
+  "humans": {
+    "h_46518a29d4dd91": {
+      "author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_9e2e1139b3b53f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e6aeb68f-c7d2-49a2-a903-b3371d11b7d5",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
