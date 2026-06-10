@@ -1,0 +1,16 @@
+skills/react-composition-patterns/AGENTS.md
+  h_46518a29d4dd91 1-956
+skills/react-no-use-effect/SKILL.md
+  h_46518a29d4dd91 10-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "f3869ac55bcb93a059990506af8615314d8b24fc",
+  "prompts": {},
+  "humans": {
+    "h_46518a29d4dd91": {
+      "author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
