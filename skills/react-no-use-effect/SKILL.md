@@ -7,6 +7,8 @@ description: Avoid useEffect in React. Use when writing or reviewing React compo
 
 **Default stance: Avoid `useEffect` unless truly necessary.**
 
+React docs: [You Might Not Need an Effect](https://react.dev/learn/you-might-not-need-an-effect)
+
 Most `useEffect` usage in codebases is unnecessary and creates bugs. Before reaching for `useEffect`, exhaust these alternatives.
 
 ## 1. Calculate During Render
