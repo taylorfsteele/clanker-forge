@@ -1,0 +1,26 @@
+{
+  "name": "clanker-forge",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Toolkit for AI coding agents: portable skills plus a single-source generator that syncs rules, commands, subagents, and MCP config across Claude Code, Cursor, and Codex.",
+  "type": "module",
+  "packageManager": "pnpm@11.5.3",
+  "scripts": {
+    "sync": "tsx src/cli.ts",
+    "check": "tsx src/check.ts && tsc --noEmit",
+    "link": "bash bin/link-skills.sh",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^24.16.0",
+      "onFail": "download"
+    }
+  }
+}

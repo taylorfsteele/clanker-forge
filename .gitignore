@@ -1,0 +1,15 @@
+node_modules/
+dist/
+
+# Consumer artifact written by `npx skills add`, not authored here
+skills-lock.json
+
+# Local generator output when targeting this repo as a project dir
+/.claude/
+/.cursor/
+/AGENTS.md
+/CLAUDE.md
+/.mcp.json
+
+.DS_Store
+*.log
