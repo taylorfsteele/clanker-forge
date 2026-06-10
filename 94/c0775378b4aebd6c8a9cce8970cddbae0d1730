@@ -1,0 +1,46 @@
+bin/link-skills.sh
+  h_b23a6a8439c0dd 1-37
+tsconfig.json
+  h_b23a6a8439c0dd 1-22
+README.md
+  s_510c398e9e9251::t_17c3adb815a3b8 49-50
+package.json
+  h_b23a6a8439c0dd 1-26
+src/lib/types.ts
+  s_510c398e9e9251::t_f312606eee2dc3 26-29
+src/targets/codex.ts
+  s_510c398e9e9251::t_ce5952bebda41d 15-22
+src/targets/cursor.ts
+  s_510c398e9e9251::t_3f4868c865ec4b 17-29
+src/targets/claude.ts
+  s_510c398e9e9251::t_c273ef98e5f663 16-23
+assets/rules/global.md
+  s_510c398e9e9251::t_d93e88776014d0 1-2
+src/lib/assets.ts
+  s_510c398e9e9251::t_03793cb4afbad3 9-10
+CONTEXT.md
+  s_510c398e9e9251::t_31ae134eca1acf 9-11
+skills/README.md
+  h_b23a6a8439c0dd 1-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "94c0775378b4aebd6c8a9cce8970cddbae0d1730",
+  "prompts": {},
+  "humans": {
+    "h_b23a6a8439c0dd": {
+      "author": "unknown"
+    }
+  },
+  "sessions": {
+    "s_510c398e9e9251": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b56e6309-4221-4bd8-a9bc-66ff9262dc81",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
