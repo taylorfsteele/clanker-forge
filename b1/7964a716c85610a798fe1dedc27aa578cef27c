@@ -1,0 +1,26 @@
+skills/react-no-use-effect/SKILL.md
+  s_3a0c79e8c10d4f::t_65700f4ed4cbaa 63-77
+  s_3a0c79e8c10d4f::t_230610676fbffd 101
+  s_3a0c79e8c10d4f::t_594531d284a253 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "b17964a716c85610a798fe1dedc27aa578cef27c",
+  "prompts": {},
+  "humans": {
+    "h_46518a29d4dd91": {
+      "author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_3a0c79e8c10d4f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4d279726-96c1-4536-b2eb-882c649bc673",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
