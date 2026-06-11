@@ -1,3 +1,7 @@
+---
+description: Review and fix common agent slop — flatten cyclomatic complexity, drop conditional let-mutation, prefer array methods, extract complex conditionals.
+---
+
 Review and fix code that exhibits common agent slop patterns. $ARGUMENTS
 
 ## Determine scope
