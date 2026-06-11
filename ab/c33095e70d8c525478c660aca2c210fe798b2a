@@ -1,0 +1,26 @@
+README.md
+  s_8d3304ddc38741::t_a32e29f9883ba0 21
+skills/README.md
+  h_46518a29d4dd91 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "abc33095e70d8c525478c660aca2c210fe798b2a",
+  "prompts": {},
+  "humans": {
+    "h_46518a29d4dd91": {
+      "author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_8d3304ddc38741": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e012ed4b-bc4a-4928-9679-82cd0d984cfb",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
