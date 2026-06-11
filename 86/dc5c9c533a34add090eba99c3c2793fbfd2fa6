@@ -1,0 +1,23 @@
+README.md
+  s_8d3304ddc38741::t_fddf8e0384cff4 52
+docs/adr/0001-canonical-source-and-generators.md
+  s_8d3304ddc38741::t_fddf8e0384cff4 16,34-35
+src/targets/cursor.ts
+  s_8d3304ddc38741::t_fddf8e0384cff4 6-8,40-43,55-66
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "86dc5c9c533a34add090eba99c3c2793fbfd2fa6",
+  "prompts": {},
+  "sessions": {
+    "s_8d3304ddc38741": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e012ed4b-bc4a-4928-9679-82cd0d984cfb",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
