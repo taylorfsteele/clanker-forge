@@ -18,7 +18,7 @@ differs per tool, so it's kept in one canonical place and rendered out. See
 ## Installing skills
 
 ```bash
-npx skills add taylorsteele/clanker-forge
+npx skills add taylorfsteele/clanker-forge
 ```
 
 ## Syncing assets across tools

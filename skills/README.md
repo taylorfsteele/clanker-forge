@@ -4,7 +4,7 @@ Portable [agent skills](https://github.com/vercel-labs/skills). Each skill is a 
 containing a `SKILL.md` file (plus any supporting files it references).
 
 ```bash
-npx skills add taylorsteele/clanker-forge
+npx skills add taylorfsteele/clanker-forge
 ```
 
 ## Authoring a skill
