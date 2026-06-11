@@ -49,7 +49,7 @@ into a project directory (default: cwd). Run `pnpm sync --help` for all flags.
 | Global rules (`--global`) | `assets/rules/global.md` | `~/.claude/CLAUDE.md` | UI-only (paste manually) | `~/.codex/AGENTS.md` |
 | Project rules (`--project`) | `assets/rules/project.md` | `CLAUDE.md` | `AGENTS.md` + `.cursor/rules/main.mdc` | `AGENTS.md` |
 | Slash commands | `assets/commands/*.md` | `.claude/commands/*.md` | `.cursor/commands/*.md` | `~/.codex/prompts/*.md` |
-| Subagents | `assets/subagents/*.md` | `.claude/agents/*.md` | — | — |
+| Subagents | `assets/subagents/*.md` | `.claude/agents/*.md` | `.cursor/agents/*.md` | — |
 | MCP servers | `assets/mcp/servers.json` | `mcpServers` (`.mcp.json` / `~/.claude.json`) | `.cursor/mcp.json` | `~/.codex/clanker-forge.mcp.toml` snippet |
 
 > Tool conventions change often. Each target lives in `src/targets/<tool>.ts` — that's the one

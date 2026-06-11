@@ -13,7 +13,7 @@ where things live and in what format:
 |---|---|---|---|
 | Rules/memory | `CLAUDE.md` | `AGENTS.md` + `.cursor/rules/*.mdc` | `AGENTS.md` |
 | Commands | `.claude/commands/*.md` (frontmatter) | `.cursor/commands/*.md` (plain) | `~/.codex/prompts/*.md` (plain) |
-| Subagents | `.claude/agents/*.md` | — | — |
+| Subagents | `.claude/agents/*.md` | `.cursor/agents/*.md` | — |
 | MCP | JSON `mcpServers` | JSON `mcpServers` | TOML `[mcp_servers.*]` |
 
 **Skills are the exception** — the [`vercel-labs/skills`](https://github.com/vercel-labs/skills)
@@ -31,8 +31,8 @@ keeps generated copies out of the repo.
 
 - Edit once in `assets/`, run `pnpm sync` — every tool stays in step. `--dry-run` doubles as a
   CI drift check.
-- Some asset/tool combinations have no equivalent (Cursor/Codex subagents); the generator
-  records an explicit `skip` with a reason rather than silently dropping them.
+- Some asset/tool combinations have no equivalent (Codex subagents); the generator records an
+  explicit `skip` with a reason rather than silently dropping them.
 - Codex MCP is emitted as a standalone `~/.codex/clanker-forge.mcp.toml` snippet rather than
   rewriting the user's `config.toml`, since we don't ship a full TOML parser/merger.
 - Tool conventions change; the per-tool modules are the single place to update when they do.

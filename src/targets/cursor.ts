@@ -3,9 +3,9 @@ import { parseFrontmatter, serializeFrontmatter } from "../lib/frontmatter.js";
 import type { Assets, SyncContext, Target } from "../lib/types.js";
 
 /**
- * Cursor's config is project-scoped. It reads root `AGENTS.md` plus `.cursor/rules/*.mdc`
- * (which need their own frontmatter), `.cursor/commands/*.md`, and `.cursor/mcp.json`.
- * In global mode only the user-level `~/.cursor` pieces (commands, MCP) are written.
+ * Cursor reads root `AGENTS.md` plus `.cursor/rules/*.mdc`, `.cursor/commands/*.md`,
+ * `.cursor/agents/*.md`, and `.cursor/mcp.json`. In global mode the user-level `~/.cursor`
+ * equivalents are written (commands, subagents, MCP). User rules remain UI-only.
  */
 export const cursor: Target = {
   name: "cursor",
@@ -37,9 +37,10 @@ export const cursor: Target = {
       writer.write(join(base, "commands", `${cmd.name}.md`), ensureNewline(cmd.body));
     }
 
-    // Cursor has no first-class subagent concept.
-    if (assets.subagents.length > 0) {
-      writer.skip(join(base, "agents"), "Cursor has no subagent equivalent; skipped");
+    // Subagents → .cursor/agents/*.md (Cursor frontmatter: name, description, model, readonly)
+    for (const agent of assets.subagents) {
+      const fm = cursorSubagentFrontmatter(agent.frontmatter);
+      writer.write(join(base, "agents", `${agent.name}.md`), serializeFrontmatter(fm, agent.body));
     }
 
     if (Object.keys(assets.mcpServers).length > 0) {
@@ -50,6 +51,19 @@ export const cursor: Target = {
     }
   },
 };
+
+function cursorSubagentFrontmatter(fm: Record<string, string>): Record<string, string> {
+  const out = pick(fm, ["name", "description", "model", "is_background"]);
+  const disallowed = fm.disallowedTools ?? "";
+  if (/\b(Write|Edit)\b/.test(disallowed)) out.readonly = "true";
+  return out;
+}
+
+function pick(obj: Record<string, string>, keys: string[]): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const key of keys) if (obj[key] !== undefined) out[key] = obj[key]!;
+  return out;
+}
 
 function ensureNewline(text: string): string {
   return text.endsWith("\n") ? text : `${text}\n`;
