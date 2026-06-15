@@ -1,0 +1,14 @@
+assets/rules/global.md
+  h_46518a29d4dd91 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "df13d2ca93d4786b2e2bab163557cfac267c2526",
+  "prompts": {},
+  "humans": {
+    "h_46518a29d4dd91": {
+      "author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
