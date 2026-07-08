@@ -27,6 +27,36 @@ export function renderCodexMcp(servers: Record<string, McpServer>): string {
   return blocks.join("\n\n") + (blocks.length ? "\n" : "");
 }
 
+export interface CodexAgent {
+  name: string;
+  description: string;
+  developerInstructions: string;
+  model?: string;
+  readonly?: boolean;
+}
+
+/**
+ * Render a Codex custom agent (`.codex/agents/*.toml`). `developer_instructions` is the
+ * agent's system prompt; omitted optional fields inherit from the parent session.
+ */
+export function renderCodexAgent(agent: CodexAgent): string {
+  const lines = [
+    `name = ${tomlString(agent.name)}`,
+    `description = ${tomlString(agent.description)}`,
+  ];
+  if (agent.model) lines.push(`model = ${tomlString(agent.model)}`);
+  if (agent.readonly) lines.push('sandbox_mode = "read-only"');
+  lines.push(`developer_instructions = ${tomlMultiline(agent.developerInstructions)}`);
+  return lines.join("\n") + "\n";
+}
+
+function tomlMultiline(value: string): string {
+  // TOML strips the first newline after the opening delimiter, so this round-trips the
+  // body verbatim. Literal (single-quote) strings avoid escaping the markdown content.
+  const body = value.endsWith("\n") ? value : `${value}\n`;
+  return `'''\n${body}'''`;
+}
+
 function tomlString(value: string): string {
   return JSON.stringify(value); // basic TOML strings share JSON's escaping/quoting
 }

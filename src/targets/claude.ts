@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseFrontmatter, serializeFrontmatter } from "../lib/frontmatter.js";
+import { resolveModel } from "../lib/models.js";
 import type { Assets, SyncContext, Target } from "../lib/types.js";
 
 /**
@@ -24,13 +25,17 @@ export const claude: Target = {
 
     // Slash commands → keep Claude-supported frontmatter keys.
     for (const cmd of assets.commands) {
-      const fm = pick(cmd.frontmatter, ["description", "argument-hint", "allowed-tools", "model"]);
+      const fm = pick(cmd.frontmatter, ["description", "argument-hint", "allowed-tools"]);
+      const model = resolveModel("claude", cmd.frontmatter.model);
+      if (model) fm.model = model;
       writer.write(join(base, "commands", `${cmd.name}.md`), serializeFrontmatter(fm, cmd.body));
     }
 
     // Subagents → .claude/agents/*.md
     for (const agent of assets.subagents) {
-      const fm = pick(agent.frontmatter, ["name", "description", "tools", "model"]);
+      const fm = pick(agent.frontmatter, ["name", "description", "tools"]);
+      const model = resolveModel("claude", agent.frontmatter.model);
+      if (model) fm.model = model;
       writer.write(join(base, "agents", `${agent.name}.md`), serializeFrontmatter(fm, agent.body));
     }
 

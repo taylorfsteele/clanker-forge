@@ -1,6 +1,6 @@
 ---
 name: prefactor
-description: Preparatory refactoring before implementing a change — "make the change easy, then make the easy change" (Kent Beck). Use when about to add a feature or fix that fights the current code structure; invoke deliberately to restructure first (behavior-preserving, verified in isolation, separate commits) so the real change lands as a small, obvious diff.
+description: Preparatory refactoring — "make the change easy, then make the easy change". Use when about to add a feature or fix that fights the current code structure: reshape the structure first so the real change lands as a small, obvious diff.
 ---
 
 # Prefactor
@@ -9,7 +9,7 @@ description: Preparatory refactoring before implementing a change — "make the 
 
 This skill is **preparatory refactoring**: when a feature or fix fights the existing structure, reshape the structure *first* so the feature drops in as a near-trivial change. It's like driving 20 miles north to reach the highway so you can then go 100 miles east at triple the speed, instead of crawling straight through the woods.
 
-Refactor only for the change in front of you, never for an imagined future shape — each prefactor you pick should make *this* change easier.
+Only make **enabling** refactors — ones you can justify with *"doing this first makes* this *change easier because ___."* Refactor for the change in front of you, never for an imagined future shape or because the code would be *nicer* — that's cleanup for another task.
 
 ## The one rule everything hangs on
 
@@ -35,7 +35,7 @@ Name the change concretely, and make the target executable where you can:
 - **Write the failing test** for the new behavior, or
 - **Programming by wishful thinking** — write the call site you *wish* existed (call functions at the abstraction level that would make this trivial), then go make those real. This designs the API from the caller's need, not from what's easy to implement.
 
-You can't tell which refactors are "enabling" until you know where you're going.
+You can't tell which refactors are **enabling** until you know where you're going.
 
 ### 2. Understand the ground, find the seam
 
@@ -61,7 +61,7 @@ Pick the smallest structural moves that remove the friction you felt. Run tests 
 - **Parallel change** (expand → migrate → contract) — add the new form alongside the old, migrate callers incrementally, then remove the old. Releasable after every phase.
 - **Branch by abstraction** — introduce an abstraction over the part you're replacing, build the new implementation behind it, swap callers over, delete the old. Trunk stays releasable throughout.
 
-Every move here keeps behavior identical. If you can complete *"doing this first makes the change easier because ___"*, keep it. If the blank is "the code is nicer," cut it — that's cleanup for another task (see bounding, below).
+Every move here keeps behavior identical and must be **enabling** — if you can't fill the blank, cut it.
 
 ### 4. Make the easy change
 
@@ -71,7 +71,7 @@ The ground is prepared; the feature or fix should now be small and almost boring
 
 The rabbit hole is real: you fix one thing, spot another, and before long you're deep in yak hair. Guardrails:
 
-- **Anchor to the feature.** A clear goal makes it easy to resist refactoring easy-but-irrelevant code. The litmus test is always: does this make *this* change easier?
+- **Anchor to the feature.** A clear goal makes it easy to resist easy-but-irrelevant refactors — if a move isn't **enabling**, it waits.
 - **Better, not perfect.** Leave the code better than you found it; it can wait for the next visit. Under-doing it is fine — frequently-touched code gets revisited and improves by compounding.
 - **Time-box** the prep and treat the box as a hard stop.
 - **A structural barrier is a smell, not a license.** If prep balloons, that's a signal to surface a conversation about the design — not to silently expand scope.

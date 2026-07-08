@@ -1,5 +1,6 @@
 import { join } from "node:path";
 import { parseFrontmatter, serializeFrontmatter } from "../lib/frontmatter.js";
+import { resolveModel } from "../lib/models.js";
 import type { Assets, SyncContext, Target } from "../lib/types.js";
 
 /**
@@ -53,7 +54,9 @@ export const cursor: Target = {
 };
 
 function cursorSubagentFrontmatter(fm: Record<string, string>): Record<string, string> {
-  const out = pick(fm, ["name", "description", "model", "is_background"]);
+  const out = pick(fm, ["name", "description", "is_background"]);
+  const model = resolveModel("cursor", fm.model);
+  if (model) out.model = model;
   const disallowed = fm.disallowedTools ?? "";
   if (/\b(Write|Edit)\b/.test(disallowed)) out.readonly = "true";
   return out;

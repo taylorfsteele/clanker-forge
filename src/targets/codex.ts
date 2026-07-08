@@ -1,12 +1,14 @@
 import { join } from "node:path";
 import { parseFrontmatter } from "../lib/frontmatter.js";
-import { renderCodexMcp } from "../lib/toml.js";
+import { resolveModel } from "../lib/models.js";
+import { renderCodexAgent, renderCodexMcp } from "../lib/toml.js";
 import type { Assets, SyncContext, Target } from "../lib/types.js";
 
 /**
  * Codex reads `AGENTS.md` (project root, or `~/.codex/AGENTS.md` globally), custom prompts
- * from `~/.codex/prompts/*.md`, and MCP servers from `~/.codex/config.toml`. Prompts and
- * MCP config are user-level only; in project mode just the root AGENTS.md is emitted.
+ * from `~/.codex/prompts/*.md`, MCP servers from `~/.codex/config.toml`, and custom agents
+ * from `.codex/agents/*.toml`. Prompts and MCP config are user-level only; agents and the
+ * root AGENTS.md are emitted in both modes.
  */
 export const codex: Target = {
   name: "codex",
@@ -39,8 +41,22 @@ export const codex: Target = {
       }
     }
 
-    if (assets.subagents.length > 0) {
-      writer.skip(join(ctx.home, ".codex", "agents"), "Codex has no subagent equivalent; skipped");
+    // Custom agents → .codex/agents/*.toml (user-level globally, project-scoped otherwise).
+    const agentsDir = ctx.mode === "global"
+      ? join(ctx.home, ".codex", "agents")
+      : join(ctx.projectDir, ".codex", "agents");
+    for (const agent of assets.subagents) {
+      const fm = agent.frontmatter;
+      writer.write(
+        join(agentsDir, `${agent.name}.toml`),
+        renderCodexAgent({
+          name: fm.name ?? agent.name,
+          description: fm.description ?? "",
+          developerInstructions: agent.body,
+          model: resolveModel("codex", fm.model),
+          readonly: /\b(Write|Edit)\b/.test(fm.disallowedTools ?? ""),
+        }),
+      );
     }
   },
 };

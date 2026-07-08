@@ -1,15 +1,18 @@
 ---
 name: react-no-use-effect
-description: Avoid useEffect in React. Use when writing or reviewing React components or hooks that reach for useEffect — covers deriving during render, event handlers, data-fetching solutions, react-hookz/web hooks, and the key prop, plus the narrow cases where useEffect is genuinely appropriate (synchronizing with external systems).
+description: MUST USE when writing or reviewing React components or hooks that use or reach for useEffect. useEffect is an escape hatch for synchronizing with external systems, not a general-purpose effect tool — prefer deriving during render, event handlers, a data-fetching library, the key prop, or a single-purpose react-hookz/web hook, and reserve useEffect for the genuine external-system cases.
 ---
 
 # Do Not Use useEffect
 
 **Default stance: Avoid `useEffect` unless truly necessary.**
 
-React docs: [You Might Not Need an Effect](https://react.dev/learn/you-might-not-need-an-effect)
+`useEffect` exists to synchronize with **external systems** — not to "run some code" in response to renders, props, or state. Most `useEffect` in codebases is neither, and each one risks stale closures, missing cleanup, and extra renders.
 
-Most `useEffect` usage in codebases is unnecessary and creates bugs. Before reaching for `useEffect`, exhaust these alternatives.
+- **Writing:** exhaust the alternatives below before reaching for the escape hatch.
+- **Reviewing:** walk every `useEffect` through sections 1–5. Only an effect that survives all five is a genuine escape hatch (section 6).
+
+React docs: [You Might Not Need an Effect](https://react.dev/learn/you-might-not-need-an-effect)
 
 ## 1. Calculate During Render
 
@@ -92,12 +95,12 @@ useEffect(() => {
 <UserProfile userId={userId} key={userId} />
 ```
 
-## When useEffect IS Appropriate
+## 6. When useEffect IS the Escape Hatch
 
-Use `useEffect` for **synchronizing with external systems**:
+Reach for it only to **synchronize with an external system** that none of sections 1–5 covers:
 
 - Connecting to WebSockets, MQTT, or other real-time services
-- Setting up browser API subscriptions (resize, intersection, if they're not present in the hooks library)
-- Integrating with non-React libraries (maps, charts, etc.), and even then `useSyncExternalStore` is usually the correct choice.
+- Browser API subscriptions (resize, intersection) not already in the hooks library
+- Integrating non-React libraries (maps, charts) — and even here `useSyncExternalStore` is usually the correct choice
 
-Even then, wrap the effect in a single-purpose, reusable hook (see section 4) rather than inlining it — and look at how [react-hookz/web](https://github.com/react-hookz/web) implements the equivalent before building your own.
+Even then it's an escape hatch, not an inline effect: wrap it in a single-purpose hook per section 4.
