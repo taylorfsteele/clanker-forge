@@ -1,0 +1,14 @@
+skills/implement/SKILL.md
+  h_46518a29d4dd91 1-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.11",
+  "base_commit_sha": "1d0eccc1f38636572e0810f73d2f43bdb2991ae8",
+  "prompts": {},
+  "humans": {
+    "h_46518a29d4dd91": {
+      "author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
