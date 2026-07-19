@@ -1,0 +1,76 @@
+src/lib/models.ts
+  s_f24bec47840303::t_d627e53b874fed 20
+skills/react-no-use-effect/SKILL.md
+  h_46518a29d4dd91 3,82
+src/lib/skills.ts
+  s_61cefd121942f1::t_2c94066b59290e 1-12
+src/lib/writer.ts
+  s_61cefd121942f1::t_0ad7ac39acd283 38,42-55
+  s_41d9774cbafc58::t_84575ef8be4f3f 36-37,39-41
+assets/subagents/implementer.md
+  h_46518a29d4dd91 33
+src/lib/types.ts
+  s_61cefd121942f1::t_c1e44af01c9d9e 15-24
+  s_61cefd121942f1::t_c3d5b21fb27c67 43-44
+assets/rules/react.md
+  h_46518a29d4dd91 1-4
+src/targets/cursor.ts
+  s_61cefd121942f1::t_d4ae7ad8c8db86 11-12
+  s_61cefd121942f1::t_0ac7b0a1a37032 56-62
+  s_61cefd121942f1::t_f4b73f5657f4c1 4
+assets/subagents/rule-reviewer.md
+  h_46518a29d4dd91 15
+skills/implement/SKILL.md
+  h_46518a29d4dd91 11-13
+src/lib/assets.ts
+  s_61cefd121942f1::t_b7dbaffa397702 4,6-8,15,30-49
+  s_41d9774cbafc58::t_e59499a7fd06aa 50
+src/cli.ts
+  s_61cefd121942f1::t_b39237783f6593 68
+assets/rules/global.md
+  h_46518a29d4dd91 12-13
+src/targets/claude.ts
+  s_61cefd121942f1::t_521ebd78f4e26f 5
+  s_61cefd121942f1::t_6f3dac82a9139d 63-69
+src/targets/codex.ts
+  s_61cefd121942f1::t_172676494e0edd 61-64
+skills/README.md
+  s_61cefd121942f1::t_292e7c8536829f 33-43,47-48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "3f97dbc00f26402519bf1e92ca232a1c22ff97e5",
+  "prompts": {},
+  "humans": {
+    "h_46518a29d4dd91": {
+      "author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_41d9774cbafc58": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "ff0dd43f-d68e-48e7-9b1d-f07c719d9355",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    },
+    "s_61cefd121942f1": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "d5c85b22-3494-4691-b04f-b457f0f56e26",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    },
+    "s_f24bec47840303": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c5f98940-30ed-420d-a225-ec0ac07817d3",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
