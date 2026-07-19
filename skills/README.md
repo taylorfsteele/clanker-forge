@@ -30,7 +30,19 @@ Conventions:
 - Keep skills **small and composable**. One job per skill.
 - Reference supporting files by relative path; ship them in the skill's directory.
 
+## Syncing
+
+`pnpm sync` copies every skill directory into each tool's global skill store:
+
+- **Cursor** → `~/.agents/skills/<name>/`
+- **Claude Code** → `~/.claude/skills/<name>/`
+- **Codex** → skipped (no skills concept)
+
+Skills sync in `--global` mode only. Preview with `pnpm sync --dry-run`, or scope to one tool
+with `pnpm sync --target cursor`.
+
 ## Local development
 
 `pnpm link` (→ `bin/link-skills.sh`) symlinks every skill into `~/.claude/skills` so you can
-test changes against your local Claude Code without publishing.
+test changes against your local Claude Code without publishing. Prefer `pnpm sync` when you
+want a plain copy into every tool (including Cursor's `~/.agents/skills`).

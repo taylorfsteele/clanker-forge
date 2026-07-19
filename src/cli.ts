@@ -65,7 +65,7 @@ function parseTargets(value: string): TargetName[] {
 
 function main() {
   const opts = parseArgs(process.argv.slice(2));
-  const assets = loadAssets(resolve(repoRoot, "assets"));
+  const assets = loadAssets(repoRoot);
   const writer = new Writer({ dryRun: opts.dryRun, repoRoot });
   const ctx = { mode: opts.mode, home: homedir(), projectDir: opts.projectDir, writer };
 

@@ -1,6 +1,6 @@
 ---
 name: react-no-use-effect
-description: MUST USE when writing or reviewing React components or hooks that use or reach for useEffect. useEffect is an escape hatch for synchronizing with external systems, not a general-purpose effect tool — prefer deriving during render, event handlers, a data-fetching library, the key prop, or a single-purpose react-hookz/web hook, and reserve useEffect for the genuine external-system cases.
+description: MUST USE when writing or reviewing React components or hooks that use or reach for useEffect. useEffect is an escape hatch for synchronizing with external systems, not a general-purpose effect tool — prefer deriving during render, event handlers, a data-fetching library, the key prop, or a single-purpose hooks library gook, and reserve useEffect for the genuine external-system cases.
 ---
 
 # Do Not Use useEffect
@@ -79,7 +79,7 @@ Many of these are well-trodden patterns:
 - Responsive breakpoints / media queries
 - Online/offline network status
 
-If you need to add one of these, add it as a reusable utility hook in this codebase rather than a one-off effect. For reference on how to build and implement such hooks correctly, see [react-hookz/web](https://github.com/react-hookz/web) — it's a well-built collection to model your hooks after (e.g. `useLocalStorageValue`, `useMountEffect`, `useUpdateEffect`, `useDebounce`, `usePrevious`, `useMediaQuery`, `useNetworkState`).
+Most of these types of single-purpose hooks are available via a React hook library. Check the project for a common hook library like `react-use` or `react-hookz/web` to see what is available in the application and use the applicable single use hook instead of the useEffect. If you need to add one of these, add it as a reusable utility hook in this codebase rather than a one-off effect. For reference on how to build and implement such hooks correctly, see [react-hookz/web](https://github.com/react-hookz/web) — it's a well-built collection to model your hooks after (e.g. `useLocalStorageValue`, `useMountEffect`, `useUpdateEffect`, `useDebounce`, `usePrevious`, `useMediaQuery`, `useNetworkState`).
 
 ## 5. Use the `key` Prop to Reset State
 

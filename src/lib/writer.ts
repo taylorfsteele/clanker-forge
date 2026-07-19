@@ -39,6 +39,26 @@ export class Writer {
     return this.record({ path: abs, status });
   }
 
+  /** Byte-for-byte copy of a source file, preserving binary content (skills ship images etc.). */
+  copy(src: string, dest: string): WriteResult {
+    const abs = resolve(dest);
+    const guard = this.guard(abs);
+    if (guard) return this.record({ path: abs, status: "skip", note: guard });
+
+    const content = readFileSync(src);
+    const existing = existsSync(abs) ? readFileSync(abs) : null;
+    if (existing?.equals(content)) {
+      return this.record({ path: abs, status: "unchanged" });
+    }
+    const status: WriteStatus = existing === null ? "create" : "update";
+
+    if (!this.opts.dryRun) {
+      mkdirSync(dirname(abs), { recursive: true });
+      writeFileSync(abs, content);
+    }
+    return this.record({ path: abs, status });
+  }
+
   skip(path: string, note: string): WriteResult {
     return this.record({ path: resolve(path), status: "skip", note });
   }

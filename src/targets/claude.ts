@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseFrontmatter, serializeFrontmatter } from "../lib/frontmatter.js";
 import { resolveModel } from "../lib/models.js";
+import { writeSkills } from "../lib/skills.js";
 import type { Assets, SyncContext, Target } from "../lib/types.js";
 
 /**
@@ -59,6 +60,13 @@ export const claude: Target = {
         writer.write(file, JSON.stringify(merged, null, 2) + "\n");
       }
     }
+
+    if (assets.skills.length === 0) return;
+    if (ctx.mode === "project") {
+      writeSkills(writer, assets.skills, join(ctx.projectDir, ".claude", "skills"));
+      return;
+    }
+    writeSkills(writer, assets.skills, join(ctx.home, ".claude", "skills"));
   },
 };
 

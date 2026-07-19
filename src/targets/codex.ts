@@ -58,6 +58,10 @@ export const codex: Target = {
         }),
       );
     }
+
+    if (assets.skills.length > 0) {
+      writer.skip(join(ctx.home, ".codex", "skills"), "Codex has no skills concept; skipped");
+    }
   },
 };
 

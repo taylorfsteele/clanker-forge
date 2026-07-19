@@ -10,3 +10,4 @@
 - Avoid declaring variables with `let` and mutating them. You will always be asked to change this, so be proactive about NOT writing code that that mutates variables.
 - Never write code that includes `setInterval` or `setTimeout`, you will be asked to refactor it. Proactively look for alternatives.
 - Never write `types.ts` files. Always colocate types where they're used or implemented and export them as needed.
+- Do not add the `void` keyword before functions unless it violates a linting rule.

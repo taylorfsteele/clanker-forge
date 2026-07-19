@@ -1,12 +1,15 @@
 import { join } from "node:path";
 import { parseFrontmatter, serializeFrontmatter } from "../lib/frontmatter.js";
 import { resolveModel } from "../lib/models.js";
+import { writeSkills } from "../lib/skills.js";
 import type { Assets, SyncContext, Target } from "../lib/types.js";
 
 /**
  * Cursor reads root `AGENTS.md` plus `.cursor/rules/*.mdc`, `.cursor/commands/*.md`,
  * `.cursor/agents/*.md`, and `.cursor/mcp.json`. In global mode the user-level `~/.cursor`
  * equivalents are written (commands, subagents, MCP). User rules remain UI-only.
+ *
+ * Skills use the cross-tool `~/.agents/skills` store (Cursor's global skill directory).
  */
 export const cursor: Target = {
   name: "cursor",
@@ -50,6 +53,13 @@ export const cursor: Target = {
         JSON.stringify({ mcpServers: assets.mcpServers }, null, 2) + "\n",
       );
     }
+
+    if (assets.skills.length === 0) return;
+    if (ctx.mode === "project") {
+      writer.skip(join(ctx.projectDir, ".agents", "skills"), "Skills are user-level; run with --global");
+      return;
+    }
+    writeSkills(writer, assets.skills, join(ctx.home, ".agents", "skills"));
   },
 };
 

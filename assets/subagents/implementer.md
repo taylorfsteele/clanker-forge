@@ -30,6 +30,7 @@ Run the project's verification commands (check base-level context files for exac
 - Tests (for the relevant package/scope)
 - Type checking
 - Linting/formatting
+- Application builds without errors
 
 If unrelated checks fail, it is almost never because of pre-existing failures. If tests fail it is almost always because of an implemented change.
 

@@ -17,7 +17,7 @@ export function isModelTier(value: string): value is ModelTier {
 // letting that tool fall back to its own default.
 const TIER_MODELS: Record<TargetName, Record<ModelTier, string | undefined>> = {
   claude: { fast: "haiku", default: "sonnet", powerful: "opus" },
-  cursor: { fast: "fast", default: "inherit", powerful: "inherit" },
+  cursor: { fast: "composer-2.5", default: "inherit", powerful: "inherit" },
   codex: { fast: "gpt-5.4-mini", default: "gpt-5.4", powerful: "gpt-5.4" },
 };
 

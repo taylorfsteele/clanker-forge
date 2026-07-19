@@ -12,6 +12,16 @@ export interface MarkdownAsset {
   body: string;
 }
 
+/** A skill directory (`skills/<name>/` containing a `SKILL.md` plus support files). */
+export interface Skill {
+  /** Directory name (kebab-case, matches SKILL.md `name`). */
+  name: string;
+  /** Absolute path to the skill's source directory. */
+  dir: string;
+  /** Every file in the skill, as paths relative to `dir` (posix separators). */
+  files: string[];
+}
+
 /** A single MCP server definition (stdio or remote). */
 export interface McpServer {
   command?: string;
@@ -30,6 +40,8 @@ export interface Assets {
   commands: MarkdownAsset[];
   subagents: MarkdownAsset[];
   mcpServers: Record<string, McpServer>;
+  /** Portable skills loaded from `skills/` (synced in --global mode). */
+  skills: Skill[];
 }
 
 /** Context handed to each target's `write` function. */
