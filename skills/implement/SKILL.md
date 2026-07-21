@@ -12,8 +12,8 @@ When writing React code, always invoke the /react-composition-patterns and /reac
 
 Run typechecking regularly, single test files regularly, and the full test suite and full build once at the end.
 
-Once done, use /code-review to review the work.
+Once done, run the code-simplifier agent in a subagent to refine the implementation, then use /code-review to review the work.
 
-Then, in separate subagents run the rule-reviewer agent and the /review-bugbot skill and fix any findings.
+Then, in separate subagents run the rule-reviewer agent, the /adversarial-review skill, and the /review-bugbot skill and fix any findings.
 
 Commit your work to the current branch using the /git-master skill.
