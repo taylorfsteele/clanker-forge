@@ -1,0 +1,28 @@
+.gitignore
+  h_46518a29d4dd91 21
+README.md
+  s_d2c9c461b03ef5::t_f9da0a1311d7ed 55
+  s_d2c9c461b03ef5::t_2bd78982513e0f 86,88
+  s_d2c9c461b03ef5::t_2064aab8637412 13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "e0006bb7181b113144f707515024459124b66e9a",
+  "prompts": {},
+  "humans": {
+    "h_46518a29d4dd91": {
+      "author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_d2c9c461b03ef5": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "0ef55387-04b6-4022-a5ef-9c733d23591f",
+        "model": "claude-fable-5"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
