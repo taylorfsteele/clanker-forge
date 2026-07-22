@@ -13,3 +13,8 @@ skills-lock.json
 
 .DS_Store
 *.log
+
+# Per-repo skill config may reference employer-internal details; this repo is public,
+# so everything but the convention doc stays local-only.
+/repo-config/*
+!/repo-config/README.md
