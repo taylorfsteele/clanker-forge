@@ -1,0 +1,24 @@
+bin/link-skills.sh
+  s_d2c9c461b03ef5::t_afcc21349a1487 38-48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "02683d3f806f805d8a191878a952ea6bebdff5b9",
+  "prompts": {},
+  "humans": {
+    "h_46518a29d4dd91": {
+      "author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_d2c9c461b03ef5": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "0ef55387-04b6-4022-a5ef-9c733d23591f",
+        "model": "claude-fable-5"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
