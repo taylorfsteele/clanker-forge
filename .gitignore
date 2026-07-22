@@ -18,3 +18,4 @@ skills-lock.json
 # so everything but the convention doc stays local-only.
 /repo-config/*
 !/repo-config/README.md
+/docs

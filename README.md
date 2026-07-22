@@ -10,6 +10,7 @@ and MCP config, built to be portable across tools.
 |---|---|---|
 | **Skills** (`skills/`) | Self-contained capabilities in `SKILL.md` format | Installed as-is by the cross-agent [`skills`](https://github.com/vercel-labs/skills) CLI — no generation needed |
 | **Assets** (`assets/`) | Rules, commands, subagents, MCP config | Authored once, then **generated** into each tool's native format/location by `pnpm sync` |
+| **Repo config** (`repo-config/`, git-ignored) | Per-repo config for the forked engineering skills (issue tracker, triage labels, domain docs) | Copied to the shared `~/.agents/repo-config/` home by `pnpm sync --global` (or symlinked by `pnpm link`) — see [repo-config/README.md](repo-config/README.md) and [ADR 0002](docs/adr/0002-external-repo-config-for-forked-skills.md) |
 
 Skills are already portable (the `skills` CLI installs them into 60+ agents). Everything else
 differs per tool, so it's kept in one canonical place and rendered out. See
@@ -51,6 +52,7 @@ into a project directory (default: cwd). Run `pnpm sync --help` for all flags.
 | Slash commands | `assets/commands/*.md` | `.claude/commands/*.md` | `.cursor/commands/*.md` | `~/.codex/prompts/*.md` |
 | Subagents | `assets/subagents/*.md` | `.claude/agents/*.md` | `.cursor/agents/*.md` | `.codex/agents/*.toml` |
 | MCP servers | `assets/mcp/servers.json` | `mcpServers` (`.mcp.json` / `~/.claude.json`) | `.cursor/mcp.json` | `~/.codex/clanker-forge.mcp.toml` snippet |
+| Per-repo skill config (`--global`) | `repo-config/<slug>/` | `~/.agents/repo-config/<slug>/` — one shared home, all tools | ← same | ← same |
 
 > Tool conventions change often. Each target lives in `src/targets/<tool>.ts` — that's the one
 > place to update when a tool moves its files.
@@ -81,8 +83,9 @@ key (the tool uses its own default).
 ```
 skills/      Portable SKILL.md skills (shipped via the `skills` CLI)
 assets/      Canonical source for rules, commands, subagents, MCP config
+repo-config/ Per-repo config for the forked engineering skills (see repo-config/README.md)
 src/         TypeScript generator (cli.ts, check.ts, targets/, lib/)
-bin/         link-skills.sh (symlink skills into ~/.claude for local dev)
+bin/         link-skills.sh (symlink skills + repo-config for local dev)
 docs/adr/    Architecture decision records
 ```
 
