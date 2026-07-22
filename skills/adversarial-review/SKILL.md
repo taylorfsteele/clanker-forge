@@ -1,9 +1,9 @@
 ---
 name: adversarial-review
-description: "Adversarial multi-persona code review. Runs three hostile reviewers (saboteur, security-auditor, complexity-skeptic) in parallel isolated subagents against a diff, gates findings on concrete evidence, and synthesizes a BLOCK/CONCERNS/CLEAN verdict. Use after implementation, when the user asks for an adversarial review, to attack changes, or to review from multiple angles."
+description: "Adversarial multi-persona code review. Runs security-auditor and complexity-skeptic in parallel isolated subagents against a diff, gates findings on concrete evidence, and synthesizes a BLOCK/CONCERNS/CLEAN verdict. Use after implementation, when the user asks for an adversarial review, to attack changes, or to review from multiple angles."
 ---
 
-Adversarial review of a set of changes. Three hostile personas attack the diff in parallel, each in an isolated subagent with its own lens. This exists to break self-review blindness: a model reviewing code from the session that wrote it shares the author's assumptions. The personas never see the implementation conversation — only the code.
+Adversarial review of a set of changes. Two hostile personas attack the diff in parallel, each in an isolated subagent with its own lens. This exists to break self-review blindness: a model reviewing code from the session that wrote it shares the author's assumptions. The personas never see the implementation conversation — only the code.
 
 You are the orchestrator. **You originate zero findings.** Every finding in the final report must come from a persona and survive the evidence gate. Your job is scope, dispatch, filtering, and synthesis.
 
@@ -19,7 +19,7 @@ Confirm the diff is non-empty before dispatching. Record the diff command and th
 
 ## 2. Dispatch the personas in parallel
 
-Send a single message spawning three subagents: **saboteur**, **security-auditor**, and **complexity-skeptic**.
+Send a single message spawning two subagents: **security-auditor** and **complexity-skeptic**.
 
 Give each subagent:
 

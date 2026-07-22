@@ -12,12 +12,12 @@ notes). Config directories live only on this machine — back them up privately 
 ## Layout
 
 One directory per repo, keyed by a slug derived from `git remote get-url origin`:
-`<owner>--<repo>` (e.g. `git@github.com:colonylabs/colony.git` → `colonylabs--colony`).
+`<owner>--<repo>` (e.g. `git@github.com:acmeinc/acme.git` → `acmeinc--acme`).
 Repos without a remote use the repo directory name.
 
 ```
 repo-config/
-└── colonylabs--colony/
+└── acmeinc--acme/
     ├── issue-tracker.md    # where issues live + MCP/CLI conventions
     ├── triage-labels.md    # canonical triage roles → actual label strings
     ├── domain.md           # where domain docs live (read + write locations)
