@@ -1,0 +1,39 @@
+skills/setup-repo-config/SKILL.md
+  s_d2c9c461b03ef5::t_ec287dc9f8bf56 2-100
+  s_d2c9c461b03ef5::t_f12e775db0763f 1
+skills/setup-repo-config/agents/openai.yaml
+  s_d2c9c461b03ef5::t_7a2765a78be20a 2-3
+  s_d2c9c461b03ef5::t_d81ddfc51f228a 1
+  s_d2c9c461b03ef5::t_e8055fbc5810aa 4-5
+skills/setup-repo-config/domain.md
+  s_d2c9c461b03ef5::t_11a1617c465b6b 1-51
+skills/setup-repo-config/issue-tracker-github.md
+  s_d2c9c461b03ef5::t_54ec26bf0875ff 1-45
+skills/setup-repo-config/issue-tracker-gitlab.md
+  s_d2c9c461b03ef5::t_c72e741226c636 1-46
+skills/setup-repo-config/issue-tracker-local.md
+  s_d2c9c461b03ef5::t_e17f7457fc7ff1 1-30
+skills/setup-repo-config/triage-labels.md
+  s_d2c9c461b03ef5::t_c6536446acaace 1-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "22a156d4268327e5d7a47ba50270bd937859f152",
+  "prompts": {},
+  "humans": {
+    "h_46518a29d4dd91": {
+      "author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_d2c9c461b03ef5": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "0ef55387-04b6-4022-a5ef-9c733d23591f",
+        "model": "claude-fable-5"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
