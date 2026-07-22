@@ -1,0 +1,5 @@
+interface:
+  display_name: "Setup Repo Config"
+  short_description: "Configure a repo for the skills, outside the repo"
+policy:
+  allow_implicit_invocation: false
