@@ -1,0 +1,28 @@
+repo-config/README.md
+  s_d2c9c461b03ef5::t_524b1a6fa2405e 1-7,12-41
+  s_d2c9c461b03ef5::t_a9f5300a204823 8-11
+.gitignore
+  h_46518a29d4dd91 16
+  s_d2c9c461b03ef5::t_c9b15c9dfe7b7b 17-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "0e00ab0b49fbaceab699c53101650958adbb5cb0",
+  "prompts": {},
+  "humans": {
+    "h_46518a29d4dd91": {
+      "author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_d2c9c461b03ef5": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "0ef55387-04b6-4022-a5ef-9c733d23591f",
+        "model": "claude-fable-5"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
