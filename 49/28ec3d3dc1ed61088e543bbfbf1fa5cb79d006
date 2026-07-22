@@ -1,0 +1,30 @@
+README.md
+  s_d2c9c461b03ef5::t_2064aab8637412 13
+  s_d2c9c461b03ef5::t_f9da0a1311d7ed 55
+  s_d2c9c461b03ef5::t_2bd78982513e0f 86,88
+docs/adr/0002-external-repo-config-for-forked-skills.md
+  s_d2c9c461b03ef5::t_42927cd17c82ef 24,26-28
+  s_d2c9c461b03ef5::t_135bc409a15310 1-23,25,29-44,47-49
+  s_d2c9c461b03ef5::t_4ac609416e445e 45-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "4928ec3d3dc1ed61088e543bbfbf1fa5cb79d006",
+  "prompts": {},
+  "humans": {
+    "h_46518a29d4dd91": {
+      "author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_d2c9c461b03ef5": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "0ef55387-04b6-4022-a5ef-9c733d23591f",
+        "model": "claude-fable-5"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
