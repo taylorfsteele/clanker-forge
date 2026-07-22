@@ -1,0 +1,35 @@
+src/lib/types.ts
+  s_d2c9c461b03ef5::t_94510d0b41f17a 25-34
+  s_d2c9c461b03ef5::t_7614d9be7888c4 55-56
+src/lib/skills.ts
+  s_d2c9c461b03ef5::t_1ba1f0a2b41780 8-15
+src/cli.ts
+  s_d2c9c461b03ef5::t_4140826a8d20ea 2,5
+  s_d2c9c461b03ef5::t_566c5b6cd30af2 75-81
+  s_d2c9c461b03ef5::t_dbd1cac9aa54b8 82
+src/lib/assets.ts
+  s_d2c9c461b03ef5::t_eb05d8353208bd 4
+  s_d2c9c461b03ef5::t_a01fac22ce1360 16,20-29
+  s_d2c9c461b03ef5::t_fd4a41c060e677 30-31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "2453df920bbff5bc66caece4b663bb0ee3655c7c",
+  "prompts": {},
+  "humans": {
+    "h_46518a29d4dd91": {
+      "author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_d2c9c461b03ef5": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "0ef55387-04b6-4022-a5ef-9c733d23591f",
+        "model": "claude-fable-5"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
