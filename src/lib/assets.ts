@@ -1,7 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { basename, join } from "node:path";
 import { parseFrontmatter } from "./frontmatter.js";
-import type { Assets, MarkdownAsset, McpServer, Skill } from "./types.js";
+import type { Assets, MarkdownAsset, McpServer, RepoConfig, Skill } from "./types.js";
 
 /** Load the canonical `assets/` + `skills/` directories into a structured object. */
 export function loadAssets(repoRoot: string): Assets {
@@ -13,7 +13,20 @@ export function loadAssets(repoRoot: string): Assets {
     subagents: loadMarkdownDir(join(assetsDir, "subagents")),
     mcpServers: loadMcp(join(assetsDir, "mcp", "servers.json")),
     skills: loadSkills(join(repoRoot, "skills")),
+    repoConfigs: loadRepoConfigs(join(repoRoot, "repo-config")),
   };
+}
+
+/** A repo config is any immediate subdirectory of `repo-config/` (one per repo slug). */
+function loadRepoConfigs(dir: string): RepoConfig[] {
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && e.name !== "node_modules")
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((e) => {
+      const configDir = join(dir, e.name);
+      return { slug: e.name, dir: configDir, files: listFiles(configDir) } satisfies RepoConfig;
+    });
 }
 
 function loadMarkdownDir(dir: string): MarkdownAsset[] {

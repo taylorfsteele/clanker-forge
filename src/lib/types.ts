@@ -22,6 +22,16 @@ export interface Skill {
   files: string[];
 }
 
+/** Per-repo skill config (`repo-config/<owner>--<repo>/`), synced to `~/.agents/repo-config`. */
+export interface RepoConfig {
+  /** Slug directory name (`<owner>--<repo>`). */
+  slug: string;
+  /** Absolute path to the config's source directory. */
+  dir: string;
+  /** Every file in the config dir, as paths relative to `dir` (posix separators). */
+  files: string[];
+}
+
 /** A single MCP server definition (stdio or remote). */
 export interface McpServer {
   command?: string;
@@ -42,6 +52,8 @@ export interface Assets {
   mcpServers: Record<string, McpServer>;
   /** Portable skills loaded from `skills/` (synced in --global mode). */
   skills: Skill[];
+  /** Per-repo skill config loaded from `repo-config/` (synced in --global mode). */
+  repoConfigs: RepoConfig[];
 }
 
 /** Context handed to each target's `write` function. */

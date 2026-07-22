@@ -1,7 +1,8 @@
 import { homedir } from "node:os";
-import { dirname, resolve } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadAssets } from "./lib/assets.js";
+import { copyTree } from "./lib/skills.js";
 import { Writer, type WriteResult } from "./lib/writer.js";
 import type { Mode, Target, TargetName } from "./lib/types.js";
 import { claude } from "./targets/claude.js";
@@ -70,6 +71,14 @@ function main() {
   const ctx = { mode: opts.mode, home: homedir(), projectDir: opts.projectDir, writer };
 
   for (const name of opts.targets) TARGETS[name].write(assets, ctx);
+
+  // Per-repo skill config is tool-agnostic — every tool's forked skills read the same
+  // ~/.agents/repo-config home — so it syncs once, not per target.
+  if (opts.mode === "global") {
+    for (const cfg of assets.repoConfigs) {
+      copyTree(writer, cfg.dir, cfg.files, join(ctx.home, ".agents", "repo-config", cfg.slug));
+    }
+  }
 
   report(writer.results, opts);
 }
