@@ -35,3 +35,14 @@ find "$REPO/skills" -name SKILL.md -not -path '*/node_modules/*' -print0 |
     ln -sfn "$src" "$target"
     echo "linked $name -> $src"
   done
+
+# Link the tool-agnostic per-repo config home the forked skills read from.
+RC_DEST="$HOME/.agents/repo-config"
+if [ -e "$RC_DEST" ] && [ ! -L "$RC_DEST" ]; then
+  echo "error: $RC_DEST exists and is not a symlink." >&2
+  echo "Move its contents into $REPO/repo-config and remove it, then re-run." >&2
+  exit 1
+fi
+mkdir -p "$HOME/.agents"
+ln -sfn "$REPO/repo-config" "$RC_DEST"
+echo "linked repo-config -> $REPO/repo-config"
