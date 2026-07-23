@@ -10,11 +10,10 @@ and MCP config, built to be portable across tools.
 |---|---|---|
 | **Skills** (`skills/`) | Self-contained capabilities in `SKILL.md` format | Installed as-is by the cross-agent [`skills`](https://github.com/vercel-labs/skills) CLI — no generation needed |
 | **Assets** (`assets/`) | Rules, commands, subagents, MCP config | Authored once, then **generated** into each tool's native format/location by `pnpm sync` |
-| **Repo config** (`repo-config/`, git-ignored) | Per-repo config for the forked engineering skills (issue tracker, triage labels, domain docs) | Copied to the shared `~/.agents/repo-config/` home by `pnpm sync --global` (or symlinked by `pnpm link`) — see [repo-config/README.md](repo-config/README.md) and [ADR 0002](docs/adr/0002-external-repo-config-for-forked-skills.md) |
+| **Repo config** (`repo-config/`, git-ignored) | Per-repo config for the forked engineering skills (issue tracker, triage labels, domain docs) | Copied to the shared `~/.agents/repo-config/` home by `pnpm sync --global` (or symlinked by `pnpm link`) — see [repo-config/README.md](repo-config/README.md) |
 
 Skills are already portable (the `skills` CLI installs them into 60+ agents). Everything else
-differs per tool, so it's kept in one canonical place and rendered out. See
-[docs/adr/0001](docs/adr/0001-canonical-source-and-generators.md) for the reasoning.
+differs per tool, so it's kept in one canonical place and rendered out.
 
 ## Installing skills
 
@@ -86,7 +85,6 @@ assets/      Canonical source for rules, commands, subagents, MCP config
 repo-config/ Per-repo config for the forked engineering skills (see repo-config/README.md)
 src/         TypeScript generator (cli.ts, check.ts, targets/, lib/)
 bin/         link-skills.sh (symlink skills + repo-config for local dev)
-docs/adr/    Architecture decision records
 ```
 
 ## Contributing

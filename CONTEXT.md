@@ -16,6 +16,3 @@ Shared vocabulary for this repo, so docs and skills stay consistent.
   target's native files.
 - **Mode** — `--global` (writes to `~/.claude`, `~/.codex`, `~/.cursor`) vs `--project` (writes
   into a project directory: `.claude/`, `.cursor/`, root `AGENTS.md`/`CLAUDE.md`).
-
-See [docs/adr/0001](docs/adr/0001-canonical-source-and-generators.md) for why the canonical +
-generator design was chosen.

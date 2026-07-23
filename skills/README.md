@@ -15,7 +15,7 @@ npx skills add taylorfsteele/clanker-forge
 `setup-matt-pocock-skills`. The only intended divergence is **repo config resolution**: per-repo
 config (issue tracker, triage labels, domain docs) resolves from `~/.agents/repo-config/<slug>/`
 before the repo's committed `docs/agents/`, so the workflow runs in repos where nothing may be
-committed (see [ADR 0002](../docs/adr/0002-external-repo-config-for-forked-skills.md)). To pull
+committed (see [repo-config/README.md](../repo-config/README.md)). To pull
 upstream updates, re-copy the skill and re-apply the resolution block.
 
 ## Authoring a skill
