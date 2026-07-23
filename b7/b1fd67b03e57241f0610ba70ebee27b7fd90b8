@@ -1,0 +1,22 @@
+skills/README.md
+  s_d2c9c461b03ef5::t_6727e3b603d635 18
+README.md
+  s_d2c9c461b03ef5::t_98e01e945766e8 16
+  s_d2c9c461b03ef5::t_3b23fe29c64490 13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "b7b1fd67b03e57241f0610ba70ebee27b7fd90b8",
+  "prompts": {},
+  "sessions": {
+    "s_d2c9c461b03ef5": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "0ef55387-04b6-4022-a5ef-9c733d23591f",
+        "model": "composer-2.5"
+      },
+      "human_author": "taylorfsteele <taylor.f.steele@gmail.com>"
+    }
+  }
+}
